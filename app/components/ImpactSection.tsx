@@ -8,7 +8,7 @@ const pillars = [
     subtitle: "Résilience de la Chaîne d'Approvisionnement Locale",
     description:
       "En produisant du fourrage localement dans des environnements contrôlés, notre système réduit la dépendance aux marchés céréaliers mondiaux volatils et renforce la souveraineté alimentaire nationale.",
-    stat: "100 %",
+    stat: "99 %",
     statLabel: "production nationale",
   },
   {
