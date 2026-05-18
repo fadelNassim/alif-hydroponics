@@ -1,4 +1,5 @@
 import { Shield, Leaf, Lightbulb, Users } from "lucide-react";
+import SectionHeader from "./ui/SectionHeader";
 
 const pillars = [
   {
@@ -17,7 +18,7 @@ const pillars = [
     title: "Durabilité",
     subtitle: "Impact Environnemental Mesurable",
     description:
-      "Une seule unité Smart-Box économise environ 85 millions de litres d'eau par an par rapport à une production fourragère conventionnelle équivalente. Notre système en boucle fermée ne génère aucun ruissellement agricole.",
+      "Une seule unité Oasis économise environ 85 millions de litres d'eau par an par rapport à une production fourragère conventionnelle équivalente. Notre système en boucle fermée ne génère aucun ruissellement agricole.",
     stat: "85 M L",
     statLabel: "eau économisée / an",
   },
@@ -79,20 +80,17 @@ export default function ImpactSection() {
     <section id="impact" className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-4">
-            Financement Public & Mission
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
-            Une Mission Qui a du Sens :{" "}
-            <span className="text-green-600">Au-delà de la Ferme</span>
-          </h2>
-          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-            Alif Hydroponics n&apos;est pas seulement une entreprise agricole — c&apos;est un
-            projet d&apos;infrastructure nationale pour la sécurité alimentaire, la
-            durabilité environnementale et le développement économique rural.
-          </p>
-        </div>
+        <SectionHeader
+          badge="Financement Public & Mission"
+          badgeColor="blue"
+          title={
+            <>
+              Une Mission Qui a du Sens :{" "}
+              <span className="text-green-600">Au-delà de la Ferme</span>
+            </>
+          }
+          description="Alif Hydroponics n'est pas seulement une entreprise agricole — c'est un projet d'infrastructure nationale pour la sécurité alimentaire, la durabilité environnementale et le développement économique rural."
+        />
 
         {/* Pillars grid */}
         <div className="grid sm:grid-cols-2 gap-6 lg:gap-8 mb-16">
@@ -123,7 +121,7 @@ export default function ImpactSection() {
         </div>
 
         {/* Grant evaluator callout */}
-        <div className="bg-gradient-to-br from-green-900 to-emerald-800 rounded-3xl p-8 lg:p-12 text-white relative overflow-hidden">
+        <div className="bg-gradient-to-br from-slate-950 to-slate-900 rounded-3xl p-8 lg:p-12 text-white relative overflow-hidden">
           <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-green-500/10 blur-3xl" />
           <div className="relative">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm font-medium mb-6">
@@ -139,7 +137,7 @@ export default function ImpactSection() {
                 { label: "Emplois Créés", value: "12+ par Unité" },
               ].map((item) => (
                 <div key={item.label} className="bg-white/10 border border-white/15 rounded-2xl p-5">
-                  <div className="text-green-300 text-xs uppercase tracking-wide mb-1">{item.label}</div>
+                  <div className="text-slate-400 text-xs uppercase tracking-wide mb-1">{item.label}</div>
                   <div className="text-white font-bold text-lg">{item.value}</div>
                 </div>
               ))}

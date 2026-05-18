@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, Leaf } from "lucide-react";
+import { useScrollTo } from "../hooks/useScrollTo";
 
 const navLinks = [
   { label: "Accueil", href: "#hero" },
   { label: "Problème & Solution", href: "#problem-solution" },
-  { label: "Smart-Box", href: "#smart-box" },
+  { label: "Oasis", href: "#oasis" },
   { label: "Ferme Pilote", href: "#showcase-farm" },
   { label: "Impact", href: "#impact" },
   { label: "Spécifications", href: "#specs" },
@@ -23,14 +24,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollTo = useScrollTo();
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      const offset = 72;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
+    scrollTo(href);
     setIsOpen(false);
   };
 
@@ -69,7 +66,7 @@ export default function Navbar() {
                 onClick={(e) => handleNavClick(e, link.href)}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   scrolled
-                    ? "text-gray-700 hover:text-green-700 hover:bg-green-50"
+                    ? "text-gray-700 hover:text-slate-900 hover:bg-slate-100"
                     : "text-white/90 hover:text-white hover:bg-white/10"
                 }`}
               >
@@ -110,7 +107,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="block px-4 py-3 rounded-lg text-gray-700 font-medium hover:text-green-700 hover:bg-green-50 transition-colors"
+              className="block px-4 py-3 rounded-lg text-gray-700 font-medium hover:text-slate-900 hover:bg-slate-50 transition-colors"
             >
               {link.label}
             </a>

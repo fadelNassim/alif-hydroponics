@@ -1,15 +1,17 @@
 "use client";
 
 import { Download, Mail, ChevronDown } from "lucide-react";
+import { useScrollTo } from "../hooks/useScrollTo";
+
+// Pre-computed blade heights (rows × trays × blades) — 8 blades per tray
+const BLADE_HEIGHTS: number[][][] = [
+  [[14,11,16,13,18,12,15,10],[10,15,13,17,11,14,16,12],[16,12,14,10,15,13,11,17],[11,17,13,15,12,16,10,14]],
+  [[12,16,10,14,18,11,13,17],[15,11,17,13,12,16,10,18],[13,18,11,15,10,14,17,12],[16,12,15,11,17,13,14,10]],
+  [[10,14,17,12,15,13,11,16],[17,11,13,16,10,15,12,18],[14,16,12,18,13,11,15,10],[12,15,11,13,17,14,16,10]],
+];
 
 export default function HeroSection() {
-  const scrollTo = (href: string) => {
-    const target = document.querySelector(href);
-    if (target) {
-      const top = target.getBoundingClientRect().top + window.scrollY - 72;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
-  };
+  const scrollTo = useScrollTo();
 
   return (
     <section
@@ -17,18 +19,18 @@ export default function HeroSection() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-950 via-green-900 to-emerald-800" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800" />
 
       {/* Decorative background circles */}
-      <div className="absolute top-[-10%] right-[-10%] w-96 h-96 rounded-full bg-green-500/10 blur-3xl" />
-      <div className="absolute bottom-[-5%] left-[-5%] w-80 h-80 rounded-full bg-emerald-400/10 blur-3xl" />
+      <div className="absolute top-[-10%] right-[-10%] w-96 h-96 rounded-full bg-emerald-500/5 blur-3xl" />
+      <div className="absolute bottom-[-5%] left-[-5%] w-80 h-80 rounded-full bg-blue-500/5 blur-3xl" />
 
       {/* Grid overlay */}
       <div
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-[0.07]"
         style={{
           backgroundImage:
-            "linear-gradient(to right, #4ade8030 1px, transparent 1px), linear-gradient(to bottom, #4ade8030 1px, transparent 1px)",
+            "linear-gradient(to right, #94a3b8 1px, transparent 1px), linear-gradient(to bottom, #94a3b8 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
@@ -37,24 +39,20 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text content */}
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/20 border border-green-500/30 text-green-300 text-sm font-medium mb-6">
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              AgTech de Nouvelle Génération
-            </div>
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
-              L&apos;Alimentation de Demain :{" "}
-              <span className="text-green-400">
-                Résistante à la Sécheresse, Automatisée et Durable.
+              Fourrage Hydroponique,{" "}
+              <span className="text-green-400 whitespace-nowrap">
+                365 Jours Par An.
               </span>
             </h1>
 
-            <p className="text-lg sm:text-xl text-green-100/80 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Des systèmes hydroponiques modulaires d&apos;orge fourragère conçus pour
-              réduire la consommation d&apos;eau de{" "}
-              <span className="font-semibold text-white">90 %</span> et fournir{" "}
-              <span className="font-semibold text-white">365 jours</span> de
-              nutrition riche en nutriments à votre bétail.
+            <p className="text-lg sm:text-xl text-slate-300 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              Sécurisez votre élevage face à la sécheresse. Nos conteneurs
+              automatisés produisent jusqu&apos;à{" "}
+              <span className="font-semibold text-white">1 tonne de fourrage frais</span>{" "}
+              par jour. Une technologie 100% marocaine qui réduit
+              votre consommation d&apos;eau de{" "}
+              <span className="font-semibold text-white">90 %</span>.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -83,17 +81,17 @@ export default function HeroSection() {
             </div>
 
             {/* Stats row */}
-            <div className="mt-14 grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
+            <div className="mt-14 grid grid-cols-3 gap-6 pt-8">
               {[
                 { value: "90 %", label: "Réduction d'eau" },
                 { value: "7×", label: "Ratio Graine/Fourrage" },
                 { value: "6 Jours", label: "Cycle de Croissance" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center lg:text-left">
-                  <div className="text-2xl sm:text-3xl font-extrabold text-green-400">
+                  <div className="text-2xl sm:text-3xl font-extrabold text-emerald-400">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-green-200/70 mt-1">{stat.label}</div>
+                  <div className="text-sm text-white/90 mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -101,32 +99,98 @@ export default function HeroSection() {
 
           {/* Visual card */}
           <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-green-800/60 to-emerald-900/60 border border-green-500/20 shadow-2xl p-1">
-              {/* Mock container interior visual */}
-              <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-green-950 to-emerald-900 aspect-[4/3] flex items-center justify-center relative">
-                {/* LED glow effect */}
-                <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-purple-500/20 via-blue-400/10 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-green-500/20 to-transparent" />
+            {/* Ambient glow behind the card */}
+            <div className="absolute -inset-6 rounded-[3rem] bg-emerald-500/10 blur-3xl pointer-events-none" />
 
-                {/* Shelf rows simulation */}
-                <div className="w-full px-8 space-y-4">
-                  {[1, 2, 3].map((row) => (
-                    <div key={row} className="relative">
-                      {/* LED strip */}
-                      <div className="h-1 rounded-full bg-gradient-to-r from-purple-400/60 via-blue-300/80 to-purple-400/60 shadow-[0_0_12px_4px_rgba(167,139,250,0.4)] mb-2" />
-                      {/* Barley trays */}
-                      <div className="flex gap-2">
-                        {[1, 2, 3, 4].map((tray) => (
+            {/* Outer container shell — industrial metallic */}
+            <div
+              className="relative rounded-3xl border border-slate-600/60 shadow-2xl shadow-black/70 overflow-hidden"
+              style={{ background: "linear-gradient(160deg, #334155 0%, #1e293b 50%, #0f172a 100%)" }}
+            >
+              {/* Corrugated metal ribbing */}
+              <div
+                className="absolute inset-0 opacity-[0.06] pointer-events-none"
+                style={{
+                  backgroundImage:
+                    "repeating-linear-gradient(0deg, transparent, transparent 7px, #94a3b8 7px, #94a3b8 8px)",
+                }}
+              />
+
+              {/* Container label — visible above the viewport */}
+              <div className="px-4 pt-3 pb-1 flex items-center justify-between">
+                <span className="text-slate-200 text-xs font-bold uppercase tracking-widest">
+                  Conteneur Maritime 40ft High Cube
+                </span>
+                <span className="text-slate-400 text-xs">12 m × 2,4 m</span>
+              </div>
+
+              {/* Interior viewport */}
+              <div
+                className="mx-3 mb-3 rounded-2xl overflow-hidden aspect-[4/3] relative"
+                style={{ background: "linear-gradient(180deg, #020617 0%, #071020 45%, #041a0b 100%)" }}
+              >
+                {/* Ceiling LED ambient wash */}
+                <div
+                  className="absolute top-0 inset-x-0 h-20 pointer-events-none"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse 80% 100% at 50% 0%, rgba(167,139,250,0.35) 0%, rgba(147,197,253,0.18) 50%, transparent 100%)",
+                  }}
+                />
+
+                {/* Floor moisture reflection */}
+                <div
+                  className="absolute bottom-0 inset-x-0 h-10 pointer-events-none"
+                  style={{ background: "linear-gradient(to top, rgba(16,185,129,0.22), transparent)" }}
+                />
+
+                {/* Shelf rows */}
+                <div className="absolute inset-0 flex flex-col justify-evenly py-4 px-5">
+                  {[0, 1, 2].map((row) => (
+                    <div key={row}>
+                      {/* LED strip with bloom glow */}
+                      <div className="relative h-0.5 mb-2">
+                        <div
+                          className="absolute inset-x-0 -top-4 h-10 pointer-events-none"
+                          style={{
+                            background:
+                              "radial-gradient(ellipse 100% 120% at 50% 100%, rgba(192,168,255,0.55) 0%, rgba(147,197,253,0.25) 50%, transparent 100%)",
+                          }}
+                        />
+                        <div className="h-full rounded-full bg-gradient-to-r from-violet-400/50 via-white to-violet-400/50" />
+                      </div>
+
+                      {/* Tray row */}
+                      <div className="flex gap-1.5">
+                        {[0, 1, 2, 3].map((tray) => (
                           <div
                             key={tray}
-                            className="flex-1 h-8 rounded bg-gradient-to-t from-green-700 to-green-500 opacity-90 relative overflow-hidden"
+                            className="flex-1 h-9 rounded overflow-hidden relative"
+                            style={{
+                              background:
+                                "linear-gradient(to top, #14532d 0%, #166534 55%, #15803d 100%)",
+                            }}
                           >
-                            <div className="absolute inset-x-0 top-0 flex justify-around">
-                              {[...Array(6)].map((_, i) => (
+                            {/* LED colour cast from above */}
+                            <div
+                              className="absolute inset-0 pointer-events-none"
+                              style={{
+                                background:
+                                  "linear-gradient(to bottom, rgba(192,168,255,0.18) 0%, transparent 55%)",
+                              }}
+                            />
+                            {/* Blades grow upward from soil */}
+                            <div className="absolute inset-x-1 bottom-0 flex items-end justify-around">
+                              {[...Array(8)].map((_, i) => (
                                 <div
                                   key={i}
-                                  className="w-0.5 rounded-full bg-green-300"
-                                  style={{ height: `${10 + Math.random() * 10}px` }}
+                                  className="rounded-t-full"
+                                  style={{
+                                    width: "2px",
+                                    height: `${BLADE_HEIGHTS[row][tray][i]}px`,
+                                    background:
+                                      "linear-gradient(to top, #15803d, #4ade80, #d1fae5)",
+                                  }}
                                 />
                               ))}
                             </div>
@@ -137,21 +201,25 @@ export default function HeroSection() {
                   ))}
                 </div>
 
-                {/* IoT badge */}
-                <div className="absolute top-4 right-4 bg-green-500/90 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow">
-                  <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                {/* IoT live badge */}
+                <div className="absolute top-3 right-3 bg-emerald-500/90 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-lg">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                   IoT En Direct
                 </div>
-                <div className="absolute bottom-4 left-4 text-green-300/80 text-xs font-medium">
-                  Intérieur Smart-Box — Conteneur 40ft HC
+
+                {/* Bottom sensor readout */}
+                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-end">
+                  <span className="text-emerald-400 text-xs font-mono font-semibold">
+                    24°C · 75% RH
+                  </span>
                 </div>
               </div>
             </div>
 
-            {/* Floating badge */}
-            <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl px-5 py-3 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
-                <span className="text-green-600 text-lg">🌾</span>
+            {/* Floating production badge */}
+            <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl px-5 py-3 flex items-center gap-3 border border-slate-100">
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
+                <span className="text-emerald-600 text-lg">🌾</span>
               </div>
               <div>
                 <div className="text-xs text-gray-500 font-medium">Production Journalière</div>

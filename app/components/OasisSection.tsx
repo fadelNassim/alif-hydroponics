@@ -1,6 +1,8 @@
-import { Thermometer, Cpu, Plug, Sun, Wifi, Shield } from "lucide-react";
+import { Thermometer, Cpu, Plug, Sun, Wifi, Shield, type LucideIcon } from "lucide-react";
+import SectionHeader from "./ui/SectionHeader";
+import FeatureCard, { type CardColor } from "./ui/FeatureCard";
 
-const features = [
+const features: { icon: LucideIcon; title: string; description: string; color: CardColor }[] = [
   {
     icon: Thermometer,
     title: "Contrôle Climatique Automatisé",
@@ -45,54 +47,26 @@ const features = [
   },
 ];
 
-const colorMap: Record<string, { bg: string; icon: string; border: string }> = {
-  blue: { bg: "bg-blue-50", icon: "text-blue-600", border: "border-blue-100" },
-  purple: { bg: "bg-purple-50", icon: "text-purple-600", border: "border-purple-100" },
-  orange: { bg: "bg-orange-50", icon: "text-orange-600", border: "border-orange-100" },
-  yellow: { bg: "bg-yellow-50", icon: "text-yellow-600", border: "border-yellow-100" },
-  green: { bg: "bg-green-50", icon: "text-green-600", border: "border-green-100" },
-  teal: { bg: "bg-teal-50", icon: "text-teal-600", border: "border-teal-100" },
-};
-
-export default function SmartBoxSection() {
+export default function OasisSection() {
   return (
-    <section id="smart-box" className="py-24 lg:py-32 bg-white">
+    <section id="oasis" className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-semibold mb-4">
-            La Technologie
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
-            Découvrez la{" "}
-            <span className="text-green-600">Smart-Box</span>
-          </h2>
-          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-            Un conteneur hydroponique autonome à climat contrôlé qui délivre
-            un fourrage de qualité constante quelles que soient les conditions
-            extérieures — bourré de technologies qui travaillent à votre place.
-          </p>
-        </div>
+        <SectionHeader
+          badge="La Technologie"
+          title={
+            <>
+              Découvrir <span className="text-green-600">Oasis</span>
+            </>
+          }
+          description="Un conteneur hydroponique autonome à climat contrôlé qui délivre un fourrage de qualité constante quelles que soient les conditions extérieures — bourré de technologies qui travaillent à votre place."
+        />
 
         {/* Features grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {features.map(({ icon: Icon, title, description, color }) => {
-            const c = colorMap[color];
-            return (
-              <div
-                key={title}
-                className={`rounded-2xl border ${c.border} p-7 hover:shadow-lg transition-shadow group bg-white`}
-              >
-                <div
-                  className={`w-12 h-12 rounded-xl ${c.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform`}
-                >
-                  <Icon className={`w-6 h-6 ${c.icon}`} />
-                </div>
-                <h3 className="font-bold text-gray-900 text-lg mb-3">{title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{description}</p>
-              </div>
-            );
-          })}
+          {features.map((f) => (
+            <FeatureCard key={f.title} {...f} />
+          ))}
         </div>
 
         {/* Container callout */}
@@ -108,7 +82,7 @@ export default function SmartBoxSection() {
               </h3>
               <p className="text-gray-300 leading-relaxed">
                 Construit sur une plateforme standardisée mondialement, notre
-                Smart-Box peut être transportée partout, déployée en une nuit et
+                Oasis peut être transportée partout, déployée en une nuit et
                 intégrée à l&apos;infrastructure existante de la ferme sans effort majeur.
               </p>
             </div>

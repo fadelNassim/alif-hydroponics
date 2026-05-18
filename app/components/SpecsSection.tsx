@@ -1,6 +1,8 @@
 "use client";
 
 import { CheckCircle } from "lucide-react";
+import SectionHeader from "./ui/SectionHeader";
+import { useScrollTo } from "../hooks/useScrollTo";
 
 const specs = [
   {
@@ -66,31 +68,28 @@ const specs = [
 ];
 
 export default function SpecsSection() {
+  const scrollTo = useScrollTo();
   return (
     <section id="specs" className="py-24 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-semibold mb-4">
-            Données Techniques
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
-            Spécifications{" "}
-            <span className="text-green-600">Techniques</span>
-          </h2>
-          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-            Des données précises pour les ingénieurs, les investisseurs et les
-            évaluateurs de subventions. La Smart-Box est conçue selon des
-            standards industriels rigoureux.
-          </p>
-        </div>
+        <SectionHeader
+          badge="Données Techniques"
+          title={
+            <>
+              Spécifications{" "}
+              <span className="text-green-600">Techniques</span>
+            </>
+          }
+          description="Des données précises pour les ingénieurs, les investisseurs et les évaluateurs de subventions. Oasis est conçue selon des standards industriels rigoureux."
+        />
 
         {/* Specs table */}
         <div className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="bg-gradient-to-r from-green-600 to-emerald-700 text-white">
+                <tr className="bg-gradient-to-r from-slate-800 to-slate-700 text-white">
                   <th className="px-6 py-4 text-left text-sm font-bold uppercase tracking-wide w-2/5">
                     Caractéristique
                   </th>
@@ -103,7 +102,7 @@ export default function SpecsSection() {
                 {specs.map((spec, index) => (
                   <tr
                     key={spec.feature}
-                    className={`border-b border-gray-50 transition-colors hover:bg-green-50/50 ${
+                    className={`border-b border-gray-50 transition-colors hover:bg-slate-50 ${
                       spec.highlight ? "bg-gray-50/50" : "bg-white"
                     } ${index === specs.length - 1 ? "border-b-0" : ""}`}
                   >
@@ -134,11 +133,7 @@ export default function SpecsSection() {
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
-              const target = document.querySelector("#contact");
-              if (target) {
-                const top = target.getBoundingClientRect().top + window.scrollY - 72;
-                window.scrollTo({ top, behavior: "smooth" });
-              }
+              scrollTo("#contact");
             }}
             className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-green-600 text-white font-semibold text-sm hover:bg-green-700 transition-colors shadow-lg shadow-green-600/20"
           >

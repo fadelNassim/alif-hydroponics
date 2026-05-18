@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { Send, MapPin, Mail, Phone } from "lucide-react";
+import SectionHeader from "./ui/SectionHeader";
+import FormField from "./ui/FormField";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -28,19 +30,16 @@ export default function ContactSection() {
     <section id="contact" className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-semibold mb-4">
-            Contactez-Nous
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
-            Partenaire de la{" "}
-            <span className="text-green-600">Prochaine Génération AgTech</span>
-          </h2>
-          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-            Que vous soyez agriculteur, investisseur ou évaluateur de subvention
-            gouvernementale, nous serions ravis d&apos;échanger avec vous.
-          </p>
-        </div>
+        <SectionHeader
+          badge="Contactez-Nous"
+          title={
+            <>
+              Partenaire de la{" "}
+              <span className="text-green-600">Prochaine Génération AgTech</span>
+            </>
+          }
+          description="Que vous soyez agriculteur, investisseur ou évaluateur de subvention gouvernementale, nous serions ravis d'échanger avec vous."
+        />
 
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
           {/* Contact info */}
@@ -68,8 +67,8 @@ export default function ContactSection() {
                   },
                 ].map(({ icon: Icon, label, value }) => (
                   <div key={label} className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-5 h-5 text-green-600" />
+                    <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-slate-600" />
                     </div>
                     <div>
                       <div className="text-xs text-gray-400 uppercase tracking-wide font-medium">
@@ -97,9 +96,9 @@ export default function ContactSection() {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="flex items-center gap-2 text-gray-500 hover:text-green-600 text-sm transition-colors group"
+                    className="flex items-center gap-2 text-gray-500 hover:text-slate-900 text-sm transition-colors group"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-green-500 transition-colors" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover:bg-slate-700 transition-colors" />
                     {link.label}
                   </a>
                 ))}
@@ -110,9 +109,9 @@ export default function ContactSection() {
           {/* Form */}
           <div className="lg:col-span-3">
             {submitted ? (
-              <div className="bg-green-50 border border-green-200 rounded-3xl p-10 text-center">
-                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-                  <Send className="w-7 h-7 text-green-600" />
+              <div className="bg-slate-50 border border-slate-200 rounded-3xl p-10 text-center">
+                <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mx-auto mb-4">
+                  <Send className="w-7 h-7 text-slate-600" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   Message Envoyé !
@@ -128,10 +127,7 @@ export default function ContactSection() {
                 className="bg-gray-50 rounded-3xl p-8 border border-gray-100 space-y-5"
               >
                 <div className="grid sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                      Nom Complet <span className="text-red-400">*</span>
-                    </label>
+                  <FormField label="Nom Complet" required>
                     <input
                       type="text"
                       name="name"
@@ -139,13 +135,10 @@ export default function ContactSection() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Votre nom"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition"
                     />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                      E-mail <span className="text-red-400">*</span>
-                    </label>
+                  </FormField>
+                  <FormField label="E-mail" required>
                     <input
                       type="email"
                       name="email"
@@ -153,35 +146,29 @@ export default function ContactSection() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="vous@example.com"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition"
                     />
-                  </div>
+                  </FormField>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                    Organisation / Ferme
-                  </label>
+                <FormField label="Organisation / Ferme">
                   <input
                     type="text"
                     name="organization"
                     value={formData.organization}
                     onChange={handleChange}
                     placeholder="Nom de votre entreprise ou ferme"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition"
                   />
-                </div>
+                </FormField>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                    Je suis intéressé par <span className="text-red-400">*</span>
-                  </label>
+                <FormField label="Je suis intéressé par" required>
                   <select
                     name="interest"
                     required
                     value={formData.interest}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition"
                   >
                     <option value="" disabled>
                       Sélectionner une option
@@ -193,21 +180,18 @@ export default function ContactSection() {
                     <option value="partnership">Partenariat Commercial</option>
                     <option value="other">Autre</option>
                   </select>
-                </div>
+                </FormField>
 
-                <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-1.5">
-                    Message
-                  </label>
+                <FormField label="Message">
                   <textarea
                     name="message"
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Décrivez votre projet ou posez vos questions..."
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-gray-900 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition resize-none"
                   />
-                </div>
+                </FormField>
 
                 <button
                   type="submit"

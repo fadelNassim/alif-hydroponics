@@ -1,4 +1,5 @@
 import { CloudRain, TrendingUp, Droplets, Sprout, Clock, Sun } from "lucide-react";
+import SectionHeader from "./ui/SectionHeader";
 
 const problems = [
   {
@@ -26,7 +27,7 @@ const solutions = [
     icon: Sprout,
     title: "Agriculture en Environnement Contrôlé",
     description:
-      "Notre Smart-Box scellée élimine totalement la dépendance météorologique, produisant un fourrage d'orge luxuriant 365 jours par an, quelles que soient les conditions extérieures.",
+      "Notre Oasis scellée élimine totalement la dépendance météorologique, produisant un fourrage d'orge luxuriant 365 jours par an, quelles que soient les conditions extérieures.",
   },
   {
     icon: Clock,
@@ -47,19 +48,16 @@ export default function ProblemSolutionSection() {
     <section id="problem-solution" className="py-24 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-semibold mb-4">
-            Le Défi & Notre Réponse
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
-            Un Système Défaillant Exige une{" "}
-            <span className="text-green-600">Solution Radicale</span>
-          </h2>
-          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-            Nous comprenons les problèmes des éleveurs modernes. C&apos;est pourquoi
-            nous avons conçu un système qui les rend obsolètes.
-          </p>
-        </div>
+        <SectionHeader
+          badge="Le Défi & Notre Réponse"
+          title={
+            <>
+              Un Système Défaillant Exige une{" "}
+              <span className="text-green-600">Solution Radicale</span>
+            </>
+          }
+          description="Nous comprenons les problèmes des éleveurs modernes. C'est pourquoi nous avons conçu un système qui les rend obsolètes."
+        />
 
         {/* Two-column grid */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
@@ -85,7 +83,7 @@ export default function ProblemSolutionSection() {
           </div>
 
           {/* Solution column */}
-          <div className="bg-gradient-to-br from-green-600 to-emerald-700 rounded-3xl p-8 lg:p-10 shadow-xl shadow-green-500/20">
+          <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 lg:p-10 shadow-xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-white text-sm font-bold mb-8">
               <span className="w-2 h-2 rounded-full bg-white" />
               La Solution
@@ -93,12 +91,12 @@ export default function ProblemSolutionSection() {
             <div className="space-y-8">
               {solutions.map(({ icon: Icon, title, description }) => (
                 <div key={title} className="flex gap-5">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-white/15 flex items-center justify-center">
-                    <Icon className="w-6 h-6 text-white" />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center">
+                    <Icon className="w-6 h-6 text-emerald-400" />
                   </div>
                   <div>
                     <h3 className="font-bold text-white mb-1">{title}</h3>
-                    <p className="text-green-100/80 text-sm leading-relaxed">{description}</p>
+                    <p className="text-slate-300 text-sm leading-relaxed">{description}</p>
                   </div>
                 </div>
               ))}

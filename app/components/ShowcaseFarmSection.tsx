@@ -1,4 +1,6 @@
 import { TrendingUp, BarChart3, RefreshCw } from "lucide-react";
+import SectionHeader from "./ui/SectionHeader";
+import ProgressBar from "./ui/ProgressBar";
 
 const metrics = [
   {
@@ -42,20 +44,16 @@ export default function ShowcaseFarmSection() {
     <section id="showcase-farm" className="py-24 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-semibold mb-4">
-            Preuve de Concept
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight">
-            La Ferme Pilote :{" "}
-            <span className="text-green-600">Des Résultats Réels</span>
-          </h2>
-          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto">
-            Notre ferme pilote démontre la Smart-Box en production quotidienne,
-            nourrissant un troupeau de moutons sain et générant des données qui
-            améliorent continuellement notre logiciel.
-          </p>
-        </div>
+        <SectionHeader
+          badge="Preuve de Concept"
+          title={
+            <>
+              La Ferme Pilote :{" "}
+              <span className="text-green-600">Des Résultats Réels</span>
+            </>
+          }
+          description="Notre ferme pilote démontre Oasis en production quotidienne, nourrissant un troupeau de moutons sain et générant des données qui améliorent continuellement notre logiciel."
+        />
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
           {/* Livestock performance */}
@@ -71,29 +69,17 @@ export default function ShowcaseFarmSection() {
             <p className="text-gray-500 text-sm mb-6 leading-relaxed">
               Nos moutons présentent des améliorations mesurables sur les
               principaux indicateurs de santé lors du passage de l&apos;alimentation
-              sèche au fourrage Smart-Box — validé par évaluation vétérinaire indépendante.
+              sèche au fourrage Oasis — validé par évaluation vétérinaire indépendante.
             </p>
             <div className="space-y-5">
               {healthMarkers.map((marker) => (
-                <div key={marker.label}>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-sm font-medium text-gray-700">
-                      {marker.label}
-                    </span>
-                    <span className="text-sm font-bold text-green-600">
-                      {marker.improvement}
-                    </span>
-                  </div>
-                  <div className="w-full bg-gray-100 rounded-full h-2">
-                    <div
-                      className="bg-green-500 h-2 rounded-full"
-                      style={{
-                        width: `${parseInt(marker.improvement, 10)}%`,
-                      }}
-                    />
-                  </div>
-                  <p className="text-xs text-gray-400 mt-1">{marker.description}</p>
-                </div>
+                <ProgressBar
+                  key={marker.label}
+                  label={marker.label}
+                  displayValue={marker.improvement}
+                  percentage={parseInt(marker.improvement, 10)}
+                  description={marker.description}
+                />
               ))}
             </div>
           </div>
@@ -111,7 +97,7 @@ export default function ShowcaseFarmSection() {
             <div className="flex items-center gap-5 mb-6 text-sm">
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-green-500 inline-block" />
-                <span className="text-gray-600">Ferme Smart-Box</span>
+                <span className="text-gray-600">Ferme Oasis</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-gray-300 inline-block" />
@@ -127,7 +113,7 @@ export default function ShowcaseFarmSection() {
                   <div className="space-y-2">
                     <div>
                       <div className="flex justify-between text-xs text-gray-500 mb-1">
-                        <span>Ferme Smart-Box</span>
+                        <span>Ferme Oasis</span>
                         <span className="font-semibold text-green-600">{m.farm}</span>
                       </div>
                       <div className="w-full bg-gray-100 rounded-full h-3">
@@ -163,7 +149,7 @@ export default function ShowcaseFarmSection() {
               {
                 step: "01",
                 title: "Le Conteneur Nourrit la Ferme",
-                desc: "La Smart-Box livre chaque matin du fourrage d'orge frais et optimisé en nutriments directement au bétail.",
+                desc: "Oasis livre chaque matin du fourrage d'orge frais et optimisé en nutriments directement au bétail.",
               },
               {
                 step: "02",

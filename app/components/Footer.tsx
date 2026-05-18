@@ -1,6 +1,7 @@
 "use client";
 
 import { Leaf } from "lucide-react";
+import { useScrollTo } from "../hooks/useScrollTo";
 
 const footerLinks = [
   {
@@ -15,7 +16,7 @@ const footerLinks = [
   {
     title: "Technologie",
     links: [
-      { label: "La Smart-Box", href: "#smart-box" },
+      { label: "Oasis", href: "#oasis" },
       { label: "Spécifications Techniques", href: "#specs" },
       { label: "Documentation", href: "#specs" },
       { label: "Programme Pilote", href: "#contact" },
@@ -40,14 +41,7 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const scrollTo = (href: string) => {
-    if (href === "#") return;
-    const target = document.querySelector(href);
-    if (target) {
-      const top = target.getBoundingClientRect().top + window.scrollY - 72;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
-  };
+  const scrollTo = useScrollTo();
 
   return (
     <footer className="bg-gray-900 text-white">
