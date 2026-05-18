@@ -8,9 +8,8 @@ const navLinks = [
   { label: "Accueil", href: "#hero" },
   { label: "Problème & Solution", href: "#problem-solution" },
   { label: "Oasis", href: "#oasis" },
-  { label: "Ferme Pilote", href: "#showcase-farm" },
+  { label: "Feuille de Route", href: "#roadmap" },
   { label: "Impact", href: "#impact" },
-  { label: "Spécifications", href: "#specs" },
   { label: "Contact", href: "#contact" },
 ];
 

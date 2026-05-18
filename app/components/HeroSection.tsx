@@ -5,9 +5,9 @@ import { useScrollTo } from "../hooks/useScrollTo";
 
 // Pre-computed blade heights (rows × trays × blades) — 8 blades per tray
 const BLADE_HEIGHTS: number[][][] = [
-  [[14,11,16,13,18,12,15,10],[10,15,13,17,11,14,16,12],[16,12,14,10,15,13,11,17],[11,17,13,15,12,16,10,14]],
-  [[12,16,10,14,18,11,13,17],[15,11,17,13,12,16,10,18],[13,18,11,15,10,14,17,12],[16,12,15,11,17,13,14,10]],
-  [[10,14,17,12,15,13,11,16],[17,11,13,16,10,15,12,18],[14,16,12,18,13,11,15,10],[12,15,11,13,17,14,16,10]],
+  [[14, 11, 16, 13, 18, 12, 15, 10], [10, 15, 13, 17, 11, 14, 16, 12], [16, 12, 14, 10, 15, 13, 11, 17], [11, 17, 13, 15, 12, 16, 10, 14]],
+  [[12, 16, 10, 14, 18, 11, 13, 17], [15, 11, 17, 13, 12, 16, 10, 18], [13, 18, 11, 15, 10, 14, 17, 12], [16, 12, 15, 11, 17, 13, 14, 10]],
+  [[10, 14, 17, 12, 15, 13, 11, 16], [17, 11, 13, 16, 10, 15, 12, 18], [14, 16, 12, 18, 13, 11, 15, 10], [12, 15, 11, 13, 17, 14, 16, 10]],
 ];
 
 export default function HeroSection() {
@@ -39,6 +39,7 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text content */}
           <div className="text-center lg:text-left">
+
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">
               Fourrage Hydroponique,{" "}
               <span className="text-green-400 whitespace-nowrap">
@@ -47,25 +48,23 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-lg sm:text-xl text-slate-300 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              Sécurisez votre élevage face à la sécheresse. Nos conteneurs
-              automatisés produisent jusqu&apos;à{" "}
+              Nous développons un conteneur automatisé qui produira jusqu&apos;à{" "}
               <span className="font-semibold text-white">1 tonne de fourrage frais</span>{" "}
-              par jour. Une technologie 100% marocaine qui réduit
-              votre consommation d&apos;eau de{" "}
+              par jour — une solution 100% algérienne pour sécuriser l’élevage face à la sécheresse et réduire la consommation d&apos;eau de{" "}
               <span className="font-semibold text-white">90 %</span>.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
-                href="#specs"
+                href="#oasis"
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollTo("#specs");
+                  scrollTo("#oasis");
                 }}
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-green-500 text-white font-semibold text-base hover:bg-green-400 transition-all shadow-lg shadow-green-500/30 hover:shadow-green-400/40 hover:-translate-y-0.5"
               >
                 <Download className="w-5 h-5" />
-                Livre Blanc Technique
+                Notre Vision
               </a>
               <a
                 href="#contact"
@@ -76,14 +75,14 @@ export default function HeroSection() {
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full border-2 border-white/30 text-white font-semibold text-base hover:bg-white/10 transition-all hover:-translate-y-0.5"
               >
                 <Mail className="w-5 h-5" />
-                Programme Pilote
+                Rejoindre le Projet
               </a>
             </div>
 
             {/* Stats row */}
             <div className="mt-14 grid grid-cols-3 gap-6 pt-8">
               {[
-                { value: "90 %", label: "Réduction d'eau" },
+                { value: "90 %", label: "Réduction d’eau (cible)" },
                 { value: "7×", label: "Ratio Graine/Fourrage" },
                 { value: "6 Jours", label: "Cycle de Croissance" },
               ].map((stat) => (
@@ -119,7 +118,7 @@ export default function HeroSection() {
               {/* Container label — visible above the viewport */}
               <div className="px-4 pt-3 pb-1 flex items-center justify-between">
                 <span className="text-slate-200 text-xs font-bold uppercase tracking-widest">
-                  Conteneur Maritime 40ft High Cube
+                  Conteneur Maritime 40ft Reefer
                 </span>
                 <span className="text-slate-400 text-xs">12 m × 2,4 m</span>
               </div>

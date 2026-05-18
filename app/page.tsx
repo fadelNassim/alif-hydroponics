@@ -2,9 +2,8 @@ import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import ProblemSolutionSection from "./components/ProblemSolutionSection";
 import OasisSection from "./components/OasisSection";
-import ShowcaseFarmSection from "./components/ShowcaseFarmSection";
+import RoadmapSection from "./components/RoadmapSection";
 import ImpactSection from "./components/ImpactSection";
-import SpecsSection from "./components/SpecsSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 
@@ -16,9 +15,8 @@ export default function Home() {
         <HeroSection />
         <ProblemSolutionSection />
         <OasisSection />
-        <ShowcaseFarmSection />
+        <RoadmapSection />
         <ImpactSection />
-        <SpecsSection />
         <ContactSection />
       </main>
       <Footer />

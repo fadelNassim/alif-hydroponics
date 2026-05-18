@@ -63,7 +63,7 @@ export default function ContactSection() {
                   {
                     icon: MapPin,
                     label: "Adresse",
-                    value: "Ferme Pilote Alif Hydroponics, Algérie",
+                    value: "Prototype Maison — Alif Hydroponics, Algérie",
                   },
                 ].map(({ icon: Icon, label, value }) => (
                   <div key={label} className="flex items-start gap-4">

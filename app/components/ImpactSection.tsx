@@ -10,7 +10,7 @@ const pillars = [
     description:
       "En produisant du fourrage localement dans des environnements contrôlés, notre système réduit la dépendance aux marchés céréaliers mondiaux volatils et renforce la souveraineté alimentaire nationale.",
     stat: "100%",
-    statLabel: "production nationale",
+    statLabel: "production locale (objectif)",
   },
   {
     icon: Leaf,
@@ -18,9 +18,9 @@ const pillars = [
     title: "Durabilité",
     subtitle: "Impact Environnemental Mesurable",
     description:
-      "Une seule unité Oasis économise environ 85 millions de litres d'eau par an par rapport à une production fourragère conventionnelle équivalente. Notre système en boucle fermée ne génère aucun ruissellement agricole.",
+      "Une unité Oasis économisera environ 85 millions de litres d'eau par an par rapport à une production fourragère conventionnelle équivalente. Notre système en boucle fermée ne générera aucun ruissellement agricole.",
     stat: "85 M L",
-    statLabel: "eau économisée / an",
+    statLabel: "eau économisée / an (estimé)",
   },
   {
     icon: Lightbulb,
@@ -30,7 +30,7 @@ const pillars = [
     description:
       "Chaque déploiement crée des emplois qualifiés en génie logiciel, agriculture de précision, maintenance IoT et analyse de données — apportant des carrières technologiques de pointe aux communautés rurales.",
     stat: "12+",
-    statLabel: "emplois par déploiement",
+    statLabel: "emplois par déploiement (prévu)",
   },
   {
     icon: Users,
@@ -40,7 +40,7 @@ const pillars = [
     description:
       "Notre modèle de franchise et de partenariat permet aux petites et moyennes fermes d'élevage d'accéder à une technologie nutritionnelle de niveau industriel avec un faible investissement en capital.",
     stat: "60 %",
-    statLabel: "réduction des coûts pour les éleveurs",
+    statLabel: "réduction des coûts (estimé)",
   },
 ];
 

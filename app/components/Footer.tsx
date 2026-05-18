@@ -17,18 +17,16 @@ const footerLinks = [
     title: "Technologie",
     links: [
       { label: "Oasis", href: "#oasis" },
-      { label: "Spécifications Techniques", href: "#specs" },
-      { label: "Documentation", href: "#specs" },
-      { label: "Programme Pilote", href: "#contact" },
+      { label: "Feuille de Route", href: "#roadmap" },
+      { label: "Rejoindre le Projet", href: "#contact" },
     ],
   },
   {
     title: "Ressources",
     links: [
-      { label: "Livre Blanc", href: "#contact" },
-      { label: "Ferme Pilote", href: "#showcase-farm" },
-      { label: "Subventions Publiques", href: "#impact" },
-      { label: "FAQ", href: "#contact" },
+      { label: "Notre Vision", href: "#oasis" },
+      { label: "Impact & Mission", href: "#impact" },
+      { label: "Contact", href: "#contact" },
     ],
   },
 ];

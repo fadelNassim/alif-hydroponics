@@ -45,14 +45,14 @@ export default function ShowcaseFarmSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <SectionHeader
-          badge="Preuve de Concept"
+          badge="Recherche & Prototype"
           title={
             <>
-              La Ferme Pilote :{" "}
-              <span className="text-green-600">Des Résultats Réels</span>
+              Prototype Validé :{" "}
+              <span className="text-green-600">Objectifs Mesurables</span>
             </>
           }
-          description="Notre ferme pilote démontre Oasis en production quotidienne, nourrissant un troupeau de moutons sain et générant des données qui améliorent continuellement notre logiciel."
+          description="Notre prototype ESP32-S3 valide les principes du contrôle hydroponique automatisé. Les métriques présentées sont des projections fondées sur la littérature scientifique publiée sur le fourrage hydroponique d&apos;orge."
         />
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
@@ -67,9 +67,7 @@ export default function ShowcaseFarmSection() {
               </h3>
             </div>
             <p className="text-gray-500 text-sm mb-6 leading-relaxed">
-              Nos moutons présentent des améliorations mesurables sur les
-              principaux indicateurs de santé lors du passage de l&apos;alimentation
-              sèche au fourrage Oasis — validé par évaluation vétérinaire indépendante.
+              Les recherches indépendantes sur l’alimentation des ruminants au fourrage hydroponique d’orge montrent des améliorations mesurables sur les principaux indicateurs de santé — ce sont les résultats que nous visons pour les éleveurs partenaires.
             </p>
             <div className="space-y-5">
               {healthMarkers.map((marker) => (
@@ -97,7 +95,7 @@ export default function ShowcaseFarmSection() {
             <div className="flex items-center gap-5 mb-6 text-sm">
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-green-500 inline-block" />
-                <span className="text-gray-600">Ferme Oasis</span>
+                <span className="text-gray-600">Système Oasis (Cible)</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-gray-300 inline-block" />
@@ -148,18 +146,18 @@ export default function ShowcaseFarmSection() {
             {[
               {
                 step: "01",
-                title: "Le Conteneur Nourrit la Ferme",
-                desc: "Oasis livre chaque matin du fourrage d'orge frais et optimisé en nutriments directement au bétail.",
+                title: "Le Prototype Contrôle l'Environnement",
+                desc: "Notre ESP32-S3 pilote déjà la température, l’humidité et l’irrigation sur un module de germination maison.",
               },
               {
                 step: "02",
-                title: "La Ferme Génère des Données",
-                desc: "Les capteurs de santé animale et les dossiers vétérinaires suivent la réponse du bétail à chaque lot de fourrage.",
+                title: "Les Données Guident le Design",
+                desc: "Chaque cycle de germination génère des données (taux de germination, consommation d’eau, croissance) qui affinent notre conception de l’unité conteneurisée.",
               },
               {
                 step: "03",
-                title: "Les Données Améliorent le Logiciel",
-                desc: "Notre IA intègre les données de performance de la ferme pour affiner les programmes d'irrigation, les niveaux nutritifs et les calendriers de récolte.",
+                title: "La Vision : le Conteneur Nourrit la Ferme",
+                desc: "Une fois l’unité conteneurisée construite, elle livrera chaque matin du fourrage d’orge frais directement au bétail, fermé le cycle production–alimentation.",
               },
             ].map((item) => (
               <div key={item.step} className="relative">

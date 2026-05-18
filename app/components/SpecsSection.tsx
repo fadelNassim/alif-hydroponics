@@ -74,14 +74,14 @@ export default function SpecsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <SectionHeader
-          badge="Données Techniques"
+          badge="Spécifications Cibles"
           title={
             <>
               Spécifications{" "}
               <span className="text-green-600">Techniques</span>
             </>
           }
-          description="Des données précises pour les ingénieurs, les investisseurs et les évaluateurs de subventions. Oasis est conçue selon des standards industriels rigoureux."
+          description="Nos objectifs de conception élaborés à partir de notre prototype ESP32-S3 et de la littérature hydroponique publiée. Ces chiffres constituent la cible de l’unité conteneurisée."
         />
 
         {/* Specs table */}
@@ -127,7 +127,7 @@ export default function SpecsSection() {
         {/* Download CTA */}
         <div className="mt-10 text-center">
           <p className="text-gray-500 text-sm mb-4">
-            Besoin de la documentation complète ?
+            Vous souhaitez en savoir plus sur notre prototype ?
           </p>
           <a
             href="#contact"
@@ -137,7 +137,7 @@ export default function SpecsSection() {
             }}
             className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-green-600 text-white font-semibold text-sm hover:bg-green-700 transition-colors shadow-lg shadow-green-600/20"
           >
-            Demander le Livre Blanc Complet
+            Nous Contacter
           </a>
         </div>
       </div>
