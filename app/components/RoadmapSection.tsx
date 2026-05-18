@@ -14,7 +14,7 @@ const phases: {
   {
     id: "01",
     status: "done",
-    period: "En cours — 2026",
+    period: "Done",
     title: "Preuve de Concept",
     description:
       "Validation des principes fondamentaux de la culture hydroponique automatisée dans un environnement contrôlé à domicile.",

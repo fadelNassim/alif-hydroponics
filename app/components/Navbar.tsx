@@ -8,6 +8,7 @@ const navLinks = [
   { label: "Accueil", href: "#hero" },
   { label: "Problème & Solution", href: "#problem-solution" },
   { label: "Oasis", href: "#oasis" },
+  { label: "IA & IoT", href: "#ai" },
   { label: "Feuille de Route", href: "#roadmap" },
   { label: "Impact", href: "#impact" },
   { label: "Contact", href: "#contact" },
